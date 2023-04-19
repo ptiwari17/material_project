@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, FormControlLabel, FormGroup, FormHelperText, Radio, Switch, TextField } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormHelperText, InputLabel, MenuItem, Radio, Select, Switch, TextField } from '@mui/material';
 
 const Form_Basic = () => {
     const[Inputs,setInputs] = useState({Name:'',
                                         Email:'', 
                                         Password:'',
                                         Check:true,
+                                        Courses:'',
                                        })
-let {Name,Email,Password,Check}=Inputs;
+let {Name,Email,Password,Check,Courses}=Inputs;
 const HandleChange = (e) => {
   setInputs(()=>{
     return{[e.target.name]: e.target.value
@@ -36,7 +37,7 @@ const handleSwitch=()=> {
         />
         <br />
         < TextField 
-        type='text'
+        type='email'
         name='email'
         value={Email}
         label='Email'
@@ -66,6 +67,15 @@ const handleSwitch=()=> {
         < FormHelperText sx={{margin:"20px",width:"35%",textSize:"100px"}}
         >We'll never share your data
         </ FormHelperText>
+        < FormControl> 
+        < InputLabel>Corses</InputLabel>
+        < Select value={Courses} name='Courses' onChange={HandleChange} >
+        < MenuItem value={'React'}>React</MenuItem>
+        < MenuItem value={'Python'}>Python</MenuItem>
+        < MenuItem value={'Html'}>Html</MenuItem>
+        < MenuItem value={'css'}>css</MenuItem>
+        </Select>
+        </FormControl>
         </FormGroup>
         <br />
         < Button type='submit' value='Submit'  variant='contained'
