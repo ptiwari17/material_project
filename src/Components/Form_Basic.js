@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormHelperText, InputLabel, MenuItem, Radio, Select, Switch, TextField } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, Switch, TextField } from '@mui/material';
 
 const Form_Basic = () => {
     const[Inputs,setInputs] = useState({Name:'',
@@ -7,6 +7,7 @@ const Form_Basic = () => {
                                         Password:'',
                                         Check:true,
                                         Courses:'',
+                                        Gender:'',
                                        })
 let {Name,Email,Password,Check,Courses}=Inputs;
 const HandleChange = (e) => {
@@ -16,7 +17,7 @@ const HandleChange = (e) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    console.log(e.target[5].value);
     };
 const handleSwitch=()=> {
   setInputs((prev)=>({
@@ -67,7 +68,7 @@ const handleSwitch=()=> {
         < FormHelperText sx={{margin:"20px",width:"35%",textSize:"100px"}}
         >We'll never share your data
         </ FormHelperText>
-        < FormControl> 
+        < FormControl sx={{margin:"20px",width:"35%"}}> 
         < InputLabel>Corses</InputLabel>
         < Select value={Courses} name='Courses' onChange={HandleChange} >
         < MenuItem value={'React'}>React</MenuItem>
@@ -77,6 +78,14 @@ const handleSwitch=()=> {
         </Select>
         </FormControl>
         </FormGroup>
+        <FormControl>
+          <FormLabel sx={{margin:"20px",width:"35%"}}>Gender</FormLabel>
+          <RadioGroup name='Gender' onChange={HandleChange} sx={{margin:"20px",width:"35%"}}>
+            <FormControlLabel value={'male'} label="male" control={<Radio />} />
+            <FormControlLabel value={'female'} label="female" control={<Radio />} />
+            <FormControlLabel value={'other'} label="other" control={<Radio />} />
+          </RadioGroup>
+        </FormControl>
         <br />
         < Button type='submit' value='Submit'  variant='contained'
         sx={{margin:"20px",width:"20%"}}>Submit</Button>
