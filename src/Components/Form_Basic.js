@@ -18,6 +18,7 @@ const HandleChange = (e) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[5].value);
+    console.log(e);
     };
 const handleSwitch=()=> {
   setInputs((prev)=>({
@@ -65,11 +66,9 @@ const handleSwitch=()=> {
          value={Check}
          sx={{margin:"20px",width:"35%"}}
         />
-        < FormHelperText sx={{margin:"20px",width:"35%",textSize:"100px"}}
-        >We'll never share your data
-        </ FormHelperText>
+        
         < FormControl sx={{margin:"20px",width:"35%"}}> 
-        < InputLabel>Corses</InputLabel>
+        < InputLabel>Courses</InputLabel>
         < Select value={Courses} name='Courses' onChange={HandleChange} >
         < MenuItem value={'React'}>React</MenuItem>
         < MenuItem value={'Python'}>Python</MenuItem>
@@ -77,18 +76,22 @@ const handleSwitch=()=> {
         < MenuItem value={'css'}>css</MenuItem>
         </Select>
         </FormControl>
-        </FormGroup>
+        {/* </FormGroup> */}
         <FormControl>
           <FormLabel sx={{margin:"20px",width:"35%"}}>Gender</FormLabel>
-          <RadioGroup name='Gender' onChange={HandleChange} sx={{margin:"20px",width:"35%"}}>
+          <RadioGroup  name='Gender' onChange={HandleChange} label='gender' sx={{margin:"0px",width:"35%" , display:"inline"}}>
             <FormControlLabel value={'male'} label="male" control={<Radio />} />
             <FormControlLabel value={'female'} label="female" control={<Radio />} />
             <FormControlLabel value={'other'} label="other" control={<Radio />} />
           </RadioGroup>
         </FormControl>
+        </FormGroup>
         <br />
         < Button type='submit' value='Submit'  variant='contained'
-        sx={{margin:"20px",width:"20%"}}>Submit</Button>
+        sx={{margin:"2px",width:"20%"}}>Submit</Button>
+        < FormHelperText sx={{margin:"20px",width:"35%",textSize:"100px"}}
+        >We'll never share your data
+        </ FormHelperText>
     </form>
   </>
   )
