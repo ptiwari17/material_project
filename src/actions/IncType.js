@@ -3,7 +3,7 @@ const Increment = ()=>{
         type:"INCREMENT"
     }
 };
-Decrement = ()=>{
+const Decrement = ()=>{
     return{
         type:"DECREMENT"
     }
