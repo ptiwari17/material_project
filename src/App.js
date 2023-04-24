@@ -22,7 +22,7 @@ const dispatch = useDispatch();
           opacity: [0.9, 0.8, 0.7],
         },
       }}>
-    <TextField variant='standard' fullwidth type="text" value={myState} sx={{marginLeft:"40px",justifyContent:"center",textAlign:"center",paddingLeft:'20px'}} />
+    <TextField variant='standard' fullwidth='true' type="text" value={myState} sx={{marginLeft:"40px",justifyContent:"center",textAlign:"center",paddingLeft:'20px'}} />
     <br />
     <Button type='submit' variant='contained' color='error' sx={{margin:"40px"}}  onClick={()=>dispatch(Increment())}>add</Button>
     <Button type='submit' variant='contained' color='warning' onClick={()=>dispatch(Decrement())}>Minus</Button>

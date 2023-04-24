@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import store from './Store';
 import {Provider} from 'react-redux';
+// output will come in console
 store.subscribe(() => console.log(store.getState()));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
