@@ -1,16 +1,22 @@
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
+import useCUSTOM from './CUSTOM_HOOKS';
 
 const FORMIK_LIB = () => {
+  const [formData,setformData] = useState({});
     let formik=useFormik({
         initialValues: {
         name: '',
         email:''
         },
         onSubmit: (values) => {
-            console.log(values);
+            // console.log(values);
+            setformData(()=>{
+              return values;
+            });
         }
     })
+    useCUSTOM(formData);
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -20,9 +26,9 @@ const FORMIK_LIB = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
-      <h1> this is the value of name ->{formik.values.name}</h1>
-      <h1>this is the value of email ->{formik.values.email}</h1>
-      {/* <h1>{formik.values}</h1> */}
+      <h1> this is the value of name:- {formik.values.name}</h1>
+      <h1>this is the value of email:- {formik.values.email}</h1>
+      <h1>{JSON.stringify(formData)}</h1>
     </div>
   )
 }
