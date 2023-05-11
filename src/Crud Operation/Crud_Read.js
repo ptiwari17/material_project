@@ -70,7 +70,7 @@ const Crud_Read = () => {
             return (
             <>
             <TableRow
-              key={row.id}
+              key={row.index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell align="right" component="th" scope="row">
