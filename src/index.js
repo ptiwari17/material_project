@@ -7,14 +7,17 @@ import {Provider} from 'react-redux';
 import FORMIK_LIB from './Components/FORMIK_LIB';
 import Axios_get from './Crud Operation/Axios_get';
 import Axios_Post from './Crud Operation/Axios_Post';
+import Create_Post from './Crud Operation/Create_Post';
+import { BrowserRouter } from 'react-router-dom';
+import Crud_Store from './Crud Operation/Crud_Store';
 // output will come in console
 store.subscribe(() => console.log(store.getState()));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  {/* <Provider store={store} > */}
-    <Axios_Post />
-  {/* </Provider> */}
+  <BrowserRouter>
+     <Crud_Store />
+  </BrowserRouter>
   </React.StrictMode>
 );
 
