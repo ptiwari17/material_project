@@ -15,9 +15,7 @@ store.subscribe(() => console.log(store.getState()));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-     <Crud_Store />
-  </BrowserRouter>
+  <FORMIK_LIB />
   </React.StrictMode>
 );
 
